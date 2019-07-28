@@ -23,15 +23,19 @@ In LAN networks we don't need internet to reach each, we can communicate with hi
 
 ## Process flow
 
-![](readmeImages/overall.PNG)
+![](readmeImages/overall.PNG).
+
 The image above shows the application and, as mentioned earlier, it’s only one window that controls everything. Four parts are marked for further discussions.
 
 1. This is a text entry widget and a button; the user enters a subnet and hits the “scan” button to iterate on all IPs in this subnet.
 Using ARP (address resolution protocol) ,which is mainly used in 3rd layer switches to translate between MAC addresses of devices and their IPs, the application asks for the MAC address for each IP, if there is a reply then the device is marked as “found” and the MAC address sent to us from this device is neglected since we’re not using ARP for its intended purpose, otherwise, the device is marked as “not found”. After that comes the port scanning part, the application tries to connect to all the “found” devices on ports 7070 and 35000, if the connection is successfully established then this device uses our application and thus marked as a “user”, otherwise, it’s a device that doesn’t use our application. As Fig. 2 shows, devices that are marked as “user” are shown in a blue color while devices that’re not using this application are shown in powder blue color to allow the user of the application to differentiate between devices which he can communicate with and others which he can’t.
 2. this part shows two text entries and a button, the user will write his .edu credentials and press the “test” button to authenticate his device. This request is sent to “Microsoft outlook API”.
-![](readmeImages/search.PNG)
+
 3. this part shows the scan results frame. If any of the “user” devices which appears in the frame authenticated himself, the next time scanning will show the name of the user instead of the IP.
 This is like how DNS works, for example, instead of the user having to remember the IP address of Google’s server, he types google.com and this will be converted, using a DNS server to the IP of the Google’s server. Here too, the user can find his authenticated colleagues by their names instead of guessing or asking them about their IP, which will be more painful than remembering Google’s IP since IP’s in LAN networks usually are assigned by a DHCP server and thus changes continuously.
-![](readmeImages/searchwithauth.PNG)
 Also, the IPs and names appearing in the scan results frame are buttons, so the user can press any “user” device (whether it’s a name or an IP) and a connection will be established on port 35000 between him and that device.
+
 4. This part shows a text entry where the user can type in a message and press “enter” key to send it to the device he has connected to.
+
+![](readmeImages/search.PNG)
+![](readmeImages/searchwithauth.PNG)
