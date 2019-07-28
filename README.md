@@ -39,3 +39,21 @@ Also, the IPs and names appearing in the scan results frame are buttons, so the 
 
 ![](readmeImages/search.PNG)
 ![](readmeImages/searchwithauth.PNG)
+
+## Limitations
+
+These’re some of the problems I faced during working on this project or limitations that will affect its performance:
+
+1. The library used for scanning (scapy) which uses ARP packets is not very efficient:
+    * Sometimes it fails to detect connected devices.
+    * On windows, it doesn’t show the IP of the device scanning itself.
+    * On Linux, it needs super user privileges so that the program must run from the terminal not from the IDE.
+2. The GUI library (tkinter) is thread unsafe which forced me to use a one window application, which was nice. If a more complex GUI is to be adopted in upcoming improvements another GUI library (like Pyqt) might be better.
+3. Most enterprise and universities networks will be class B, and class B scanning using ARP is found to be not practical based on the time cost.
+
+## Future work
+
+There is always a room for improvements in any software package. Possible improvements are:
+
+1. Using other authentication email clients e.g. (@Gmail, @yahoo, etc.…).
+2. Add voice and video calls.
